@@ -6,7 +6,7 @@
 /*   By: myuen <myuen@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 14:53:29 by myuen             #+#    #+#             */
-/*   Updated: 2026/01/16 18:43:07 by myuen            ###   ########.fr       */
+/*   Updated: 2026/01/16 21:22:11 by myuen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int main()
         v.push_back(3);
         
         std::vector<int>::iterator it = easyfind(v, 2);
-        std::cout << "Found: " << *it << std::endl;
+        std::cout << "Found: vector<int>: " << *it << std::endl;
         
         it = easyfind(v, 99);  // Should throw
     }
@@ -41,7 +41,7 @@ int main()
         lst.push_back(30);
         
         std::list<int>::iterator it = easyfind(lst, 20);
-        std::cout << "Found: " << *it << std::endl;
+        std::cout << "Found list<int>: " << *it << std::endl;
         
         it = easyfind(lst, 99);  // Should throw
     }
@@ -50,5 +50,23 @@ int main()
         std::cout << "Error: " << e.what() << std::endl;
     }
     
+    try
+    {
+        std::string str;
+        str.push_back(50);
+        str.push_back(51);
+        str.push_back(52);
+        
+        std::string::iterator it = easyfind(str, '2');
+        std::cout << "Found string: " << *it << std::endl;
+        
+        it = easyfind(str, 0);  // Should throw
+    }
+    catch (std::exception &e)
+    {
+        std::cout << "Error: " << e.what() << std::endl;
+    }
+
+
     return 0;
 }
